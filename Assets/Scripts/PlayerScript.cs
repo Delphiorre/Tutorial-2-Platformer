@@ -9,6 +9,7 @@ public class PlayerScript : MonoBehaviour
     public float speed;                 //public means the values can be accessed and changed in Unity inspector
     public Text score;
     private int scoreValue = 0;
+    public int jumpForce = 3;
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +44,7 @@ public class PlayerScript : MonoBehaviour
     private void OnCollisionStay2D(Collision2D collision){      //when objects are in constant contact
         if(collision.collider.tag == "Ground"){
             if(Input.GetKey(KeyCode.W)){
-                rd2d.AddForce(new Vector2(0, 3),ForceMode2D.Impulse);   //add sudden vertical impulse force of 3
+                rd2d.AddForce(new Vector2(0, jumpForce),ForceMode2D.Impulse);   //add sudden vertical impulse force of 3
             }
         }
     }
